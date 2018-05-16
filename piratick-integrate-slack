@@ -17,16 +17,8 @@ driver = webdriver.Chrome(chrome_options=options)
 driver.get('http://codepad.org')
  
 # click radio button
-python_button = driver.find_elements_by_xpath("//input[@name='lang' and @value='Python']")[0]
+python_button = driver.find_elements_by_xpath("/html/body/header/nav[1]/div/ul/li[5]/a")[0]
 python_button.click()
- 
-# type text
-text_area = driver.find_element_by_id('textarea')
-text_area.send_keys("print('Hello World')")
- 
-# click submit button
-submit_button = driver.find_elements_by_xpath('//*[@id="editor"]/table/tbody/tr[3]/td/table/tbody/tr/td/div/table/tbody/tr/td[3]/input')[0]
-submit_button.click()
 
 curl -X POST -H 'Content-type: application/json' \
 --data '{"text":"This is a line of text.\nAnd this is another one."}' \
